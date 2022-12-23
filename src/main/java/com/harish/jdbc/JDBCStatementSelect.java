@@ -2,12 +2,12 @@ package com.harish.jdbc;
 
 import java.sql.*;
 
-public class JDBCDemo {
+public class JDBCStatementSelect {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/harish","root","root");
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM harish.user where id=1;");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM harish.user");
         while (rs.next()){
             int userId = rs.getInt("id");
             String userName = rs.getString("name");
